@@ -1,0 +1,104 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.sidebar {
+    opacity: 0;
+    background-color: v.$cyan;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .5s ease;
+
+    &.mostrar {
+        opacity: 1;
+        padding: 2rem;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgb(0 0 0 / .95);
+
+        @include m.tablet {
+            display: none;
+        }
+    }
+
+    &.ocultar {
+        opacity: 0;
+    }
+
+    @include m.tablet {
+        display: block;
+        padding: 3rem;
+        opacity: 1;
+        background-color: v.$cyan;
+        height: 100%;
+    }
+
+    .contenedor-sidebar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            color: v.$blanco;
+            margin: 0;
+            text-align: center;
+        }
+
+        .cerrar-menu {
+            i {
+                color: v.$blanco;
+                font-size: 3rem;
+            }
+
+            @include m.tablet {
+                display: none;
+            }
+        }
+    }
+
+    .sidebar-nav {
+        margin-top: 5rem;
+
+        a {
+            color: v.$blanco;
+            display: block;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            font-size: 2.4rem;
+            transition: background-color .2s ease;
+            font-weight: bold;
+            text-align: center;
+
+            &:hover,
+            &.activo {
+                background-color: color.adjust(v.$cyan, $lightness: -5%);
+                border-radius: .5rem;
+            }
+
+            @include m.tablet {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+        }
+    }
+
+    .cerrar-sesion-mobile {
+        margin-top: 10rem;
+
+        .cerrar-sesion {
+            @include m.boton(v.$cyan, v.$blanco);
+            &{
+                border-radius: .5rem;
+            }
+        }
+
+        @include m.tablet {
+            display: none;
+        }
+    }
+}

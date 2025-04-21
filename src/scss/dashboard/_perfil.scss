@@ -1,0 +1,42 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+@use "sass:color";
+
+.perfil {
+
+    .formulario {
+        margin-top: 2rem;
+
+        .campo {
+            flex-direction: column;
+            padding: 0;
+        } 
+        .campo-label{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .5rem;
+            label{
+                margin-bottom: 0
+            }
+            a{
+                color: v.$cyan;
+                font-size: 1.3rem;
+                &:hover{
+                    color: color.adjust(v.$cyan, $lightness: -10%);
+                  }
+            }
+         
+        }
+     
+        @include m.colorInput(v.$cyan);
+
+        .input-password {
+            .input-eye {
+                background-color: v.$blanco ;
+            }
+        }
+    }
+
+
+}

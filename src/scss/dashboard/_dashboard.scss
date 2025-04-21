@@ -1,0 +1,56 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.dashboard {
+  background-color: v.$grisMasClaro;
+
+  @include m.tablet {
+    display: flex;
+    height: 100vh;
+  }
+
+  .principal {
+    flex: 1; //forzamos para que ocupe el resto de espacio
+    overflow-y: scroll;
+
+  }
+
+  .contenido {
+    padding: 2rem;
+
+    .nombre-pagina {
+      text-align: center;
+      font-size: 3.5rem;
+    }
+  }
+
+  .formulario {
+    .campo {
+      display: flex;
+      padding: 2rem 0;
+    }
+
+    input[type="submit"] {
+      @include m.boton(v.$cyan, v.$blanco);
+
+      & {
+        padding: 1rem;
+        border-radius: .5rem;
+      }
+    }
+  }
+
+  .contenedor-ds {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+
+  .enlace{
+    color: v.$cyan;
+    &:hover{
+      color: color.adjust(v.$cyan, $lightness: -10%);
+    }
+  }
+}

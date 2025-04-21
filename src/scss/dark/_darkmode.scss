@@ -1,0 +1,144 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+@media (prefers-color-scheme: dark) {
+    $azulOscuro: #121b28;
+
+    body {
+        background-color: $azulOscuro;
+    }
+
+    .contenedor-sm {
+        border-color: color.adjust($azulOscuro, $lightness: 5%);
+    }
+
+    .tagline,
+    .nombre-pagina {
+        color: v.$blanco;
+    }
+
+    .descripcion-pagina,
+    .formulario .campo label,
+    .formulario .campo input,
+    .formulario .campo input::placeholder,
+    .login .acciones a,
+    .crear .acciones a,
+    .olvide .acciones a,
+    .dashboard .enlace {
+        color: color.adjust(v.$grisMasClaro, $lightness: -15%);
+    }
+
+    .formulario .campo input,
+    .formulario .input-password .input-eye,
+    .perfil .formulario .input-password .input-eye {
+        background-color: color.adjust($azulOscuro, $lightness: 5%);
+        border: 1px solid $azulOscuro;
+    }
+
+    .formulario .input-password .input-eye,
+    .perfil .formulario .input-password .input-eye {
+        border: none;
+
+        &.input-seleccionado {
+            color: v.$grisMasClaro;
+            border: none;
+        }
+
+        &:hover {
+            color: color.adjust(v.$grisMasClaro, $lightness: -15%);
+            border: none;
+        }
+    }
+
+    .alerta.error {
+        background-color: v.$grisMasClaro;
+    }
+
+    .barra-mobile {
+        background-color: color.adjust($azulOscuro, $lightness: -7%);
+    }
+
+    .barra {
+        background-color: color.adjust($azulOscuro, $lightness: -2%);
+        box-shadow: none;
+
+        p {
+            color: v.$blanco;
+        }
+
+        .cerrar-sesion {
+            background-color: v.$naranja;
+        }
+    }
+
+    .barra p span {
+        color: v.$naranja;
+    }
+
+    .dashboard {
+        background-color: $azulOscuro;
+
+    }
+
+    .listado-proyectos .proyecto {
+        background-color: color.adjust($azulOscuro, $lightness: 10%);
+        box-shadow: none;
+
+        &:hover {
+            background-color: color.adjust($azulOscuro, $lightness: 6%);
+            border: 1px solid color.adjust($azulOscuro, $lightness: 50%);
+        }
+    }
+
+    .filtros {
+        background-color: color.adjust($azulOscuro, $lightness: 10%);
+
+        label {
+            color: v.$blanco;
+        }
+
+        input[type="radio"] {
+            accent-color: v.$naranja;
+        }
+    }
+
+    .listado-tareas .tarea {
+        background-color: color.adjust($azulOscuro, $lightness: 10%);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+
+        p {
+            color: v.$blanco;
+        }
+    }
+
+    .sidebar {
+        @include m.tablet {
+            background-color: color.adjust($azulOscuro, $lightness: -2%);
+        }
+
+        .sidebar-nav a {
+
+            &.activo,
+            &:hover {
+                background-color: color.adjust($azulOscuro, $lightness: 10%);
+            }
+
+        }
+    }
+
+    .formulario.nueva-tarea {
+        background-color: $azulOscuro;
+
+        legend {
+            color: v.$blanco;
+        }
+
+        input[type=text] {
+            border: none;
+        }
+    }
+
+}

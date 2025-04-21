@@ -1,0 +1,48 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.formulario {
+
+    .campo {
+        margin-bottom: 1.5rem;
+
+        label {
+            margin-bottom: .5rem;
+            font-weight: bold;
+            display: inline-block;
+            color: v.$gris;
+        }
+
+        input {
+            width: 100%;
+            padding: .5rem .9rem;
+            border: 1px solid #dee2e6;
+            border-radius: .5rem;
+            color: v.$grisOscuro;
+            cursor: text;
+            line-height: 1.5;
+
+            &:focus {
+                outline: none;
+                /* Elimina el borde o resaltado predeterminado */
+                box-shadow: none;
+                /* Elimina sombras en el borde */
+
+            }
+        }
+    }
+
+    .input-password {
+        display: flex;
+        align-items: center;
+        line-height: 1.5;
+
+        .input-eye {
+            padding: .5rem .9rem;
+            border: 1px solid #dee2e6;
+            border-radius: .5rem;
+            color: v.$grisClaro;
+        }
+    }
+}
